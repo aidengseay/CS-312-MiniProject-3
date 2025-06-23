@@ -1,0 +1,54 @@
+<%- include("partials/header.ejs") %>
+
+<body>
+    
+    <!-- nav bar -->
+    <nav id="nav-bar">
+        <div id="nav-content">
+            <img id="mount-pic" src="/images/mountain.png" alt="Mountain Logo"/>
+            <h1 id="web-title">Hiking Around The World - Weather</h1>
+
+            <form id="blog-form" action="/" method="POST">
+                <button class="nav-button" type="submit">Blog</button>
+            </form>
+
+            <form id="weather-form" action="/weather" method="POST">
+                <button class="nav-button" type="submit">Weather</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- getting user input -->
+
+    <form id="coordinate-tool" action="/weather" method="POST">
+        <h4 id="coordinate-prompt">Enter Location Coordinates</h4>
+        <br>
+        <input class="coordinate-box" type="text" name="lat" placeholder="Latitude" required/>
+        <input class="coordinate-box" type="text" name="lon" placeholder="Longitude" required/>
+        <br>
+        <button class="button" type="submit">Check weather</button>
+    </form>
+
+    <!-- display weather results -->
+
+    <% if(locals.temp) { %>
+
+        <div class="weather-cell">
+        <h2>Current Weather</h2>
+            <p>Temperature: <%= temp %>°F</p>
+            <p>Low Temp: <%= tempMin %>°F</p>
+            <p>High Temp: <%= tempMax %>°F</p>
+            <p>Humidity: <%= humidity %>%</p>
+            <p>Conditions: <%= weatherMain %> ( <%= weatherDescription %> )</p>
+            <img id="weather-img" src="https://openweathermap.org/img/wn/<%= weatherIcon %>@2x.png" alt="weather icon" /> 
+        </div>
+
+    <% } %>
+
+    <% if(locals.error) { %>
+        <div class="weather-cell">
+            <h2 id="coordinate-prompt">Enter Valid Location Coordinates</h4>
+        </div>
+    <% } %>
+
+</body>

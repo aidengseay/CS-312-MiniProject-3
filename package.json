@@ -1,0 +1,28 @@
+{
+  "name": "cs-312-miniproject-3",
+  "version": "1.0.0",
+  "description": "CS 312 Summer 2025 - Aiden Seay",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aidengseay/CS-312-MiniProject-3.git"
+  },
+  "keywords": [],
+  "author": "Aiden Seay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aidengseay/CS-312-MiniProject-3/issues"
+  },
+  "homepage": "https://github.com/aidengseay/CS-312-MiniProject-3#readme",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.16.2"
+  }
+}

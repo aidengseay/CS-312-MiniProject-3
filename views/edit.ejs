@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+
+<!-- nav bar -->
+<body>
+    <nav id="nav-bar">
+        <div id="nav-content">
+            <img id="mount-pic" src="/images/mountain.png" alt="Mountain Logo"/>
+            <h1 id="web-title">Hiking Around The World - Editing Form</h1>
+        </div>
+    </nav>
+
+    <!-- editing form -->
+    <div class="edit-post">
+        <h3 id="edit-title">Editing <%= blogPosts[blogIndex].title %></h3>
+        <form class="blog-form" action="/update" method="POST">
+            <input type="text" class="create-title" name="title" placeholder="Blog title" required value="<%= blogPosts[blogIndex].title %>"/>
+            <input type="text" class="create-author" name="author" placeholder="Your name" required value="<%= blogPosts[blogIndex].author %>"/>
+
+            <select class="create-category" name="category" required>
+                <option value="Trails" <%= blogPosts[blogIndex].category === "Trails" ? "selected" : "" %>>Trails</option>
+                <option value="Gear" <%= blogPosts[blogIndex].category === "Gear" ? "selected" : "" %>>Gear</option>
+                <option value="Skills" <%= blogPosts[blogIndex].category === "Skills" ? "selected" : "" %>>Skills</option>
+                <option value="Nature" <%= blogPosts[blogIndex].category === "Nature" ? "selected" : "" %>>Nature</option>
+            </select>
+
+            <textarea class="create-content" name="content" rows=10 cols=60 placeholder="Blog Content" required><%= blogPosts[blogIndex].content %></textarea>
+
+            <input type="hidden" name="blogNum" value="<%= blogIndex %>">
+            <br>
+            <input class="submit-btn button" type="submit" value="Update">
+        </form>
+    </div>
+</body>

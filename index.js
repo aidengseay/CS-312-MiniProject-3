@@ -3,7 +3,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
 import dotenv from "dotenv";
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: "./config.env" });
 
 // constants ///////////////////////////////////////////////////////////////////
 const app = express();

@@ -20,7 +20,7 @@
 
     <!-- getting user input -->
 
-    <form id="coordinate-tool" action="/weather" method="POST">
+    <form class="small-tan-box" action="/weather" method="POST">
         <h4 id="coordinate-prompt">Enter Location Coordinates</h4>
         <br>
         <input class="coordinate-box" type="text" name="lat" placeholder="Latitude" required/>
@@ -33,8 +33,8 @@
 
     <% if(locals.temp) { %>
 
-        <div class="weather-cell">
-        <h2>Current Weather</h2>
+        <div class="small-white-box">
+            <h2>Current Weather</h2>
             <p>Temperature: <%= temp %>°F</p>
             <p>Low Temp: <%= tempMin %>°F</p>
             <p>High Temp: <%= tempMax %>°F</p>
@@ -46,9 +46,11 @@
     <% } %>
 
     <% if(locals.error) { %>
-        <div class="weather-cell">
+
+        <div class="small-white-box">
             <h2 id="coordinate-prompt">Enter Valid Location Coordinates</h4>
         </div>
+        
     <% } %>
 
 </body>

@@ -1,36 +1,18 @@
-<%- include("partials/header.ejs") %>
+<%- include("partials/header.ejs", {user}) %>
 
 <body>
-    
-    <!-- nav bar -->
-    <nav id="nav-bar">
-        <div id="nav-content">
-            <img id="mount-pic" src="/images/mountain.png" alt="Mountain Logo"/>
-            <h1 id="web-title">Hiking Around The World - Weather</h1>
-
-            <form id="blog-form" action="/" method="POST">
-                <button class="nav-button" type="submit">Blog</button>
-            </form>
-
-            <form id="weather-form" action="/weather" method="POST">
-                <button class="nav-button" type="submit">Weather</button>
-            </form>
-        </div>
-    </nav>
 
     <!-- getting user input -->
-
     <form class="small-tan-box" action="/weather" method="POST">
-        <h4 id="coordinate-prompt">Enter Location Coordinates</h4>
+        <h4 class="small-prompt">Enter Location Coordinates</h4>
         <br>
-        <input class="coordinate-box" type="text" name="lat" placeholder="Latitude" required/>
-        <input class="coordinate-box" type="text" name="lon" placeholder="Longitude" required/>
+        <input class="small-write-prompt" type="text" name="lat" placeholder="Latitude" required/>
+        <input class="small-write-prompt" type="text" name="lon" placeholder="Longitude" required/>
         <br>
         <button class="button" type="submit">Check weather</button>
     </form>
 
     <!-- display weather results -->
-
     <% if(locals.temp) { %>
 
         <div class="small-white-box">
@@ -45,12 +27,13 @@
 
     <% } %>
 
+    <!-- display results if necessary -->
     <% if(locals.error) { %>
 
         <div class="small-white-box">
-            <h2 id="coordinate-prompt">Enter Valid Location Coordinates</h4>
+            <h2 class="small-prompt">Enter Valid Location Coordinates</h4>
         </div>
-        
+
     <% } %>
 
 </body>

@@ -10,17 +10,25 @@ body{
 
 #nav-bar{
   background-color: #ccd5ae;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 20px;
   position: sticky;
   top: 0;
 }
 
 #nav-content{
-  display: flex;         
-  flex-direction: row;
+  display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+}
+
+#nav-left{
+  display: flex;
+  align-items: center;
   gap: 20px;
+}
+
+#nav-right{
+  margin-left: auto;
 }
 
 #mount-pic{
@@ -38,103 +46,11 @@ body{
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .nav-button:hover{
   background-color: #fefae0;
-}
-
-/* filter posts */
-
-#filter-prompt{
-    display: inline;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.filter-category{
-    width: 50%;
-    margin: 10px;
-    padding: 5px;
-    background-color: #fefae0;
-}
-
-/* viewing posts */
-
-#blog-post{
-    text-align: left;
-}
-
-#blog-title,#edit-title{
-    font-size: 2.5rem;
-    margin: 10px 10px;
-}
-
-#blog-category{
-    font-size: 1.5rem;
-    margin: 10px 10px;
-}
-
-#blog-author{
-    margin: 10px 10px;
-    font-size: 1.5rem;
-}
-
-#blog-content{
-    margin: 10px 10px;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-#post-buttons{
-    text-align: center;
-}
-
-#edit-form{
-    display: inline-block;
-    margin-bottom: 10px;
-}
-
-#delete-form{
-    display: inline-block;
-}
-
-/* creating/editing posts */
-
-#new-post-title{
-    display: inline;
-}
-
-.write-prompt{
-    width: 90%;
-    margin: 10px;
-    padding: 5px;
-    background-color: #fefae0;
-}
-
-.submit-btn{
-    margin: 10px;
-}
-
-/* weather page */
-
-#coordinate-prompt{
-    font-size: 1.5rem;
-    display: inline;
-}
-
-.coordinate-box{
-    width: 50%;
-    margin: 10px;
-    padding: 5px;
-    background-color: #fefae0;
-}
-
-#weather-img{
-    border-style: solid;
-    border-radius: 25px;
-    background-color: #faedcd;
 }
 
 /* templating boxes */
@@ -169,6 +85,25 @@ body{
     margin: 20px auto 20px auto;
     padding: 10px;
     border-radius: 25px;
+}
+
+.large-write-prompt{
+    width: 90%;
+    margin: 10px;
+    padding: 5px;
+    background-color: #fefae0;
+}
+
+.small-write-prompt{
+    width: 50%;
+    margin: 10px;
+    padding: 5px;
+    background-color: #fefae0;
+}
+
+.small-prompt{
+    font-size: 1.5rem;
+    display: inline;
 }
 
 /* template buttons */

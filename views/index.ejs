@@ -1,22 +1,6 @@
-<%- include("partials/header.ejs") %>
+<%- include("partials/header.ejs", {user}) %>
 
 <body>
-    
-    <!-- nav bar -->
-    <nav id="nav-bar">
-        <div id="nav-content">
-            <img id="mount-pic" src="/images/mountain.png" alt="Mountain Logo"/>
-            <h1 id="web-title">Hiking Around The World - Blog</h1>
-
-            <form id="blog-form" action="/" method="POST">
-                <button class="nav-button" type="submit">Blog</button>
-            </form>
-
-            <form id="weather-form" action="/weather" method="POST">
-                <button class="nav-button" type="submit">Weather</button>
-            </form>
-        </div>
-    </nav>
 
     <!-- filter tool -->
     <form class="small-tan-box" action="/filter" method="POST">
@@ -43,6 +27,8 @@
             <p id="blog-author">Created by <%= blogPosts[i].author %> on <%= blogPosts[i].time %></p>
             <hr>
             <p id="blog-content"><%= blogPosts[i].content %></p>
+
+            <!-- TODO: track the username and determine if buttons appear -->
             <div id="post-buttons">
                 <form id="edit-form" action="/edit" method="POST">
                     <input type="hidden" name="blogNum" value="<%= i %>">
@@ -68,13 +54,15 @@
     <% } %>
 
     <!-- make a new post -->
+
+    <!-- TODO: make a new post only with account and remove author (use display name) -->
     <div class="large-tan-box">
         <h3 id="new-post-title">Create a new post!</h3>
         <form action="/new" method="POST">
-            <input type="text" class="write-prompt" name="title" placeholder="Blog Title" required/>
-            <input type="text" class="write-prompt" name="author" placeholder="Your Name" required/>
+            <input type="text" class="large-write-prompt" name="title" placeholder="Blog Title" required/>
+            <input type="text" class="large-write-prompt" name="author" placeholder="Your Name" required/>
 
-            <select class="write-prompt" name="category" required>
+            <select class="large-write-prompt" name="category" required>
                 <option selected disabled value> -- Select a Category -- </option>
                 <option value="Trails">Trails</option>
                 <option value="Gear">Gear</option>
@@ -82,7 +70,7 @@
                 <option value="Nature">Nature</option>
             </select>
 
-            <textarea class="write-prompt" name="content" placeholder="Blog Content" rows=10 cols=60 required></textarea>
+            <textarea class="large-write-prompt" name="content" placeholder="Blog Content" rows=10 cols=60 required></textarea>
             <br>
             <input class="submit-btn button" type="submit" value="Submit">
         </form>

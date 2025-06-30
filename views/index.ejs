@@ -1,4 +1,4 @@
-<%- include("partials/header.ejs", {user}) %>
+<%- include("partials/header.ejs", {userId}) %>
 
 <body>
 
@@ -24,21 +24,26 @@
         <div class="large-white-box" id="blog-post">
             <h4 id="blog-title"><%= blogPosts[i].title %></h4>
             <h5 id="blog-category">Category: <%= blogPosts[i].category %></h5>
-            <p id="blog-author">Created by <%= blogPosts[i].author %> on <%= blogPosts[i].time %></p>
+            <p id="blog-author">Created by <%= blogPosts[i].creator_name %> on <%= blogPosts[i].date_created %></p>
             <hr>
-            <p id="blog-content"><%= blogPosts[i].content %></p>
+            <p id="blog-content"><%= blogPosts[i].body %></p>
 
-            <!-- TODO: track the username and determine if buttons appear -->
+            <!-- track the username and determine if buttons appear -->
+             <% if(userId == blogPosts[i].creator_user_id) {%>
+
             <div id="post-buttons">
-                <form id="edit-form" action="/edit" method="POST">
-                    <input type="hidden" name="blogNum" value="<%= i %>">
+                <form id="edit-form" action="/edit" method="POST">        
+                    <input type="hidden" name="blogId" value="<%= blogPosts[i].blog_id %>">
                     <button id="edit-btn" class="button" type="submit">Edit</button>
                 </form>
                 <form id="del-form" action="/delete" method="POST">
-                    <input type="hidden" name="blogNum" value="<%= i %>">
+                    <input type="hidden" name="blogId" value="<%= blogPosts[i].blog_id %>">
                     <button id="del-btn" class="button" type="submit">Delete</button>
                 </form>
             </div>
+
+            <% } %>
+
         </div>
 
         <% visible = true; %>
@@ -54,13 +59,12 @@
     <% } %>
 
     <!-- make a new post -->
+    <% if(userId != null) {%>
 
-    <!-- TODO: make a new post only with account and remove author (use display name) -->
     <div class="large-tan-box">
         <h3 id="new-post-title">Create a new post!</h3>
         <form action="/new" method="POST">
             <input type="text" class="large-write-prompt" name="title" placeholder="Blog Title" required/>
-            <input type="text" class="large-write-prompt" name="author" placeholder="Your Name" required/>
 
             <select class="large-write-prompt" name="category" required>
                 <option selected disabled value> -- Select a Category -- </option>
@@ -75,4 +79,13 @@
             <input class="submit-btn button" type="submit" value="Submit">
         </form>
     </div>
+
+    <% } else { %>
+
+        <div class="small-tan-box">
+            <h1 class="small-prompt">Sign-in to make a post</h1>
+
+        </div>
+
+    <% } %>
 </body>

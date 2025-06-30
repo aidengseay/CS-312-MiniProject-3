@@ -30,7 +30,7 @@
                 </div>
 
                 <!-- right side of nav bar -->
-                <% if(user === null) { %>
+                <% if(userId === null) { %>
                 <div id="nav-right">
                     <form action="/signin">
                         <button class="nav-button" type="submit">Sign-in</button>
@@ -39,7 +39,7 @@
                 <% } else { %>
                 <div id="nav-right"></div>
                     <form action="/manage-account">
-                        <button class="nav-button" type="submit"> Hello <%= user %></button>
+                        <button class="nav-button" type="submit"> Hello <%= userId %></button>
                     </form>
                 <% } %>
                 </div>

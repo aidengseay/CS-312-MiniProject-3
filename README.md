@@ -67,16 +67,16 @@ http://localhost:3000
 
 ## Preview
 
-<img align="center" src=""/>
+<img align="center" src="git-images/blog-page.png"/>
 <p align="center" ><em>Blog Page</em></p>
 
-<img align="center" src=""/>
+<img align="center" src="git-images/login-page.png"/>
 <p align="center" ><em>Login Page</em></p>
 
-<img align="center" src=""/>
+<img align="center" src="git-images/signup-page.png"/>
 <p align="center" ><em>Sign-Up Page</em></p>
 
-<img align="center" src=""/>
+<img align="center" src="git-images/account-page.png"/>
 <p align="center" ><em>Account Page</em></p>
 
 ## Sources
